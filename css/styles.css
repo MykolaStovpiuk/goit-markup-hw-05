@@ -210,28 +210,52 @@ padding: 188px 0;
 }
 
 .form-lable input {
-    border: none;
         width: 360px;
         height: 40px;
-        border: 1px solid grey;
         outline: none;  
 }
+
+
 
 .form-lable input:focus {
 border: 1px solid #4d5ae5;
 }
 
-.contact-form {
+.form-lable input:focus + .form-element-man {
+    fill: #4d5ae5;
+    }
+
+.modal {
     width:408px;
-    height: 584px;
+    min-height: 584px;
     border-radius: 4px;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px 0 rgba(0, 0, 0, 0.2);
-        background: #fff;
-        align-items: center;
-        position: absolute;
-        top: 80px;
-        left: 500px;
+    background: #fcfcfc;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
+
+.modal-close {
+width: 24px;
+height: 24px;
+border-radius: 100%;
+stroke-width: 1px;
+stroke: rgba(0, 0, 0, 0.1);
+position: absolute;
+top: 24px;
+right: 24px ;
+border: transparent;
+cursor: pointer;
+}
+.modal-close:active {
+    background-color:  #404bbf;
+    fill: #fff;
+}
+
+
 
 .contact-form-heading {
 font-weight: 500;
@@ -257,8 +281,10 @@ border-radius: 4px;
 .contact-form-input {
     border: 1px solid gray;
         border-radius: 4px;
-        width: 360px;
+        width: 100%;
         height: 40px;
+        padding-left: 38px;
+        transition:  250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 
@@ -283,7 +309,30 @@ font-weight: 400;
 font-size: 12px;
 line-height: 1.17;
 letter-spacing: 0.04em;
+display: flex;
+align-items: center;
 }
+
+.last-label-name span {
+    width: 16px;
+    height: 16px;
+    border-radius: 2px;
+    border: 1px solid rgba(46, 47, 66, 0.4);
+    margin-right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    fill: transparent;
+}
+
+.form-check
+
+.form-check:checked + .last-label-name span {
+    border: none;
+    background-color: #404bbf;
+    fill: #ffffff;
+}
+
 .terms-agreement {
 font-weight: 400;
     font-size: 12px;
@@ -306,24 +355,44 @@ font-weight: 400;
 
 .form-element-man {
 position: absolute;
-    top: 135px;
-    left: 30px;
-    fill: #4d5ae5;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .form-element-phone {
     position: absolute;
     top: 193px;
-    left: 30px;
+    left: 45px;
 }
 
 .form-element-mail {
     position: absolute;
     top: 250px;
-    left: 30px;
+    left: 45px;
 }
-  
-    
+
+.modal-input-wrap {
+    position: relative;
+}
+
+.modal-area-text {
+    border-radius: 4px;
+    width: 100%;
+    height: 120px;
+    padding-top: 8px;
+    padding-left: 20px;
+    resize: none;
+
+}
+ 
+.privacy-policy {
+    text-decoration: underline;
+    color: #4d5ae5;
+}
+
+
 .form-send-button {
 font-weight: 500;
 font-size: 16px;
@@ -346,6 +415,7 @@ color: #FFF;
 margin-top: 24px;
 transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 cursor: pointer;
+border: transparent;
 }
 
 
@@ -711,6 +781,26 @@ letter-spacing: 0.02em;
 color: #ffffff;
 }
 
+.footer-bottom {
+    display: flex;
+    align-items: center;
+}
+
+.form-input-footer {
+border: 1px solid #fff;
+border-radius: 4px;
+width: 264px;
+height: 40px;
+background: transparent;
+box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+padding-left: 16px;
+color: #fff;
+}
+
+.form-input-footer::placeholder {
+    color: #fff;
+}
+
 .form-input {
 background-color: transparent;
 border: 1px solid #fff;
@@ -734,6 +824,9 @@ padding: 8px 24px;
 width: 165px;
 height: 40px;
 background: #4D5AE5;
+border: transparent;
+cursor: pointer;
+margin-right: 24px;
 
 }
 
@@ -748,6 +841,23 @@ a:focus {
 color: #404BBF;
 }
 
+.telegram-icon {
+    fill: #fff;
+}
 
+.backdrop  {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vw;
+    background-color: rgba(46, 47, 66, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
 
-
+.is-open {
+opacity: 1;
+visibility: visible;
+pointer-events: auto;
+}
